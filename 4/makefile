@@ -1,11 +1,11 @@
-#cutable files for this directory
-OBJECTS = arith-ex arraysizeof cond \
-		  incr int-div oofe overflow \
-		  prec shift-prec sizeof_pgm \
-		  unaryOps vec_init warn_dbltoint
+#.outcutable files for this directory
+OBJECTS = arith-ex.out arraysizeof.out cond.out \
+		  incr.out int-div.out oofe.out overflow.out \
+		  prec.out shift-prec.out sizeof_pgm.out \
+		  unaryOps.out vec_init.out warn_dbltoint.out
 
 # tells make to use the file "../GNU_makefile_template", which
-# defines general rules for making .o and  files
+# defines general rules for making .o and .out files
 include ../GNU_makefile_template
 
 LOCFLAGS = -I../2

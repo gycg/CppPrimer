@@ -44,7 +44,7 @@ using std::cin; using std::cout; using std::endl;
 #include <cstddef>
 using std::size_t;
 
-#include "Sales_item.h"
+#include "Sales_data.h"
 
 // unordered_map version of the word count program
 int main() 
@@ -66,22 +66,22 @@ int main()
 }
 
 // how to override default hash and equality operator on key_type
-size_t hasher(const Sales_item &sd) 
+size_t hasher(const Sales_data &sd) 
 {
 	return hash<string>()(sd.isbn());
 }
-bool eqOp(const Sales_item &lhs, const Sales_item &rhs)
+bool eqOp(const Sales_data &lhs, const Sales_data &rhs)
 {
 	return lhs.isbn() == rhs.isbn();
 }
 
 // type alias using our functions in place of hash<key_type> and ==
 typedef unordered_multiset<
-	     Sales_item, 
-	     size_t(*)(const Sales_item&), 
-         bool(*)(const Sales_item&, const Sales_item&)> SD_multiset;
+	     Sales_data, 
+	     size_t(*)(const Sales_data&), 
+         bool(*)(const Sales_data&, const Sales_data&)> SD_multiset;
 
-// bookstore can hold multiple Sales_item with the same ISBN
+// bookstore can hold multiple Sales_data with the same ISBN
 // arguments are the bucket size 
 // and pointers to the hash function and equality operator
 SD_multiset bookstore(42, hasher, eqOp);

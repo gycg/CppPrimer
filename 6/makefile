@@ -1,21 +1,21 @@
-#cutable files for this directory
-OBJECTS = arrRet count-calls errMsg_initList \
-		  fact fcnptrRet good_printmain \
-		  inline_shorter mainmath mainret \
-		  mk_plural ref-fcn refparms refret-ex  \
-		  reset stl-arr-fcns usefcnptr wdebug
+#.outcutable files for this directory
+OBJECTS = arrRet.out count-calls.out errMsg_initList.out \
+		  fact.out fcnptrRet.out good_printmain.out \
+		  inline_shorter.out mainmath.out mainret.out \
+		  mk_plural.out ref-fcn.out refparms.out refret-ex.out  \
+		  reset.out stl-arr-fcns.out usefcnptr.out wdebug.out
 
 # tells make to use the file "../GNU_makefile_template", which
-# defines general rules for making .o and  files
+# defines general rules for making .o and .out files
 include ../GNU_makefile_template
 
 LOCFLAGS = 
 
 fact.o mainmath.o LocalMath.o: LocalMath.h
 
-fact: fact.o LocalMath.o
-	$(CC) $(CCFLAGS) fact.o LocalMath.o -o fact
+fact.out: fact.o LocalMath.o
+	$(CC) $(CCFLAGS) fact.o LocalMath.o -o fact.out
 
-mainmath: mainmath.o LocalMath.o 
-	$(CC) $(CCFLAGS) mainmath.o LocalMath.o -o mainmath
+mainmath.out: mainmath.o LocalMath.o 
+	$(CC) $(CCFLAGS) mainmath.o LocalMath.o -o mainmath.out
 

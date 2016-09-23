@@ -1,33 +1,33 @@
-# executable files for this directory
-OBJECTS = add_item.exe avg_price.exe \
-		  useAccount.exe useScreen.exe 
+#.outcutable files for this directory
+OBJECTS = add_item.out avg_price.out \
+		  useAccount.out useScreen.out 
 
 # the corresponding source file uses c++ 11 features
-C11_OBJECTS = useDebug.exe
+C11_OBJECTS = useDebug.out
 
 # tells make to use the file "../GNU_makefile_template", which
-# defines general rules for making .o and .exe files
+# defines general rules for making .o and .out files
 include ../GNU_makefile_template
 
 LOCFLAGS = -I../1
 
-useScreen.exe: Screen.h
+useScreen.out: Screen.h
 
 Account.o useAccount.o: Account.h
 Debug.o useDebug.o: Debug.h
 
-useAccount.exe: Account.o useAccount.o
+useAccount.out: Account.o useAccount.o
 	$(CC) $(CCFLAGS) $(LOCFLAGS) Account.o useAccount.o \
-		-o useAccount.exe
+		-o useAccount.out
 
-useDebug.exe: Debug.o useDebug.o
-	$(CC) $(CCFLAGS) $(LOCFLAGS) Debug.o useDebug.o -o useDebug.exe
+useDebug.out: Debug.o useDebug.o
+	$(CC) $(CCFLAGS) $(LOCFLAGS) Debug.o useDebug.o -o useDebug.out
 
-add_item.exe: add_item.o Sales_data.o
+add_item.out: add_item.o Sales_data.o
 	$(CC) $(CCFLAGS) $(LOCFLAGS) add_item.o Sales_data.o \
-		-o add_item.exe
+		-o add_item.out
 
-avg_price.exe: avg_price.o Sales_data.o
+avg_price.out: avg_price.o Sales_data.o
 	$(CC) $(CCFLAGS) $(LOCFLAGS) avg_price.o Sales_data.o \
-		-o avg_price.exe
+		-o avg_price.out
  
